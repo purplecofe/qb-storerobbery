@@ -3,11 +3,12 @@ Config = {}
 Config.minEarn = 100
 Config.maxEarn = 450
 Config.RegisterEarnings = math.random(Config.minEarn, Config.maxEarn)
-Config.MinimumStoreRobberyPolice = 2
+Config.MinimumStoreRobberyPolice = 1
 Config.resetTime = (60 * 1000) * 30
 Config.tickInterval = 1000
 
-Config.Registers = {
+Config.Registers = { 
+    -- Balls LTD
     [1] = {vector3(-47.24,-1757.65, 29.53), robbed = false, time = 0, safeKey = 1, camId = 4},
     [2] = {vector3(-48.58,-1759.21, 29.59), robbed = false, time = 0, safeKey = 1, camId = 4},
     [3] = {vector3(-1486.26,-378.0,  40.16), robbed = false, time = 0, safeKey = 2, camId = 5},
@@ -43,25 +44,36 @@ Config.Registers = {
 }
 
 Config.Safes = {
-    [1] = {vector4(-43.43, -1748.3, 29.42,  52.5), type = "keypad", robbed = false, camId = 4}, 
-    [2] = {vector4(-1478.94, -375.5, 39.16,  229.5), type = "padlock", robbed = false, camId = 5},
-    [3] = {vector4(-1220.85, -916.05, 11.32,  229.5), type = "padlock", robbed = false, camId = 6},
-    [4] = {vector4(-709.74, -904.15, 19.21, 229.5), type = "keypad", robbed = false, camId = 7},
-    [5] = {vector3(28.21, -1339.14, 29.49), type = "keypad", robbed = false, camId = 8},
-    [6] = {vector3(1126.77, -980.1, 45.41), type = "padlock", robbed = false, camId = 9},
-    [7] = {vector3(1159.46, -314.05, 69.2), type = "keypad", robbed = false, camId = 10},
-    [8] = {vector3(378.17, 333.44, 103.56), type = "keypad", robbed = false, camId = 11},
-    [9] = {vector3(-1829.27, 798.76, 138.19), type = "keypad", robbed = false, camId = 12},
-    [10] = {vector3(-2959.64, 387.08, 14.04), type = "padlock", robbed = false, camId = 13},
-    [11] = {vector3(-3047.88, 585.61, 7.9), type = "keypad", robbed = false, camId = 14},
-    [12] = {vector3(-3250.02, 1004.43, 12.83), type = "keypad", robbed = false, camId = 15},
-    [13] = {vector3(546.41, 2662.8, 42.15), type = "keypad", robbed = false, camId = 16},
-    [14] = {vector3(1169.31, 2717.79, 37.15), type = "padlock", robbed = false, camId = 17},
-    [15] = {vector3(2672.69, 3286.63, 55.24), type = "keypad", robbed = false, camId = 18},
-    [16] = {vector3(1959.26, 3748.92, 32.34), type = "keypad", robbed = false, camId = 19},
-    [17] = {vector3(1734.78, 6420.84, 35.03), type = "keypad", robbed = false, camId = 20},
-    [18] = {vector3(-168.40, 6318.80, 30.58), type = "padlock", robbed = false, camId = 27},
-    [19] = {vector3(168.95, 6644.74, 31.70), type = "keypad", robbed = false, camId = 30},
+    -- Balls LTD
+    [1] = {coords = vector3(-43.84, -1748.07, 29.42), heading = 320, length = 0.7, width = 0.5, minZ = 28.5, maxZ = 29.5, robbed = false, cracked = false, opened = false, camId = 4}, 
+    -- 小首爾
+    [2] = {coords = vector3(-710.24, -904.17, 19.22), heading = 0, length = 0.7, width = 0.5, minZ = 18.22, maxZ = 19.22, robbed = false, cracked = false, opened = false, camId = 7},
+    -- 純潔大道
+    [3] = {coords = vector3(31.74, -1339.29, 29.5), heading = 320, length = 0.7, width = 0.5, minZ = 29.5, maxZ = 30.3, robbed = false, cracked = false, opened = false, camId = 8},
+    -- 藍丘大道
+    [4] = {coords = vector3(1126.75, -979.65, 45.42), heading = 98, length = 0.85, width = 0.5, minZ = 44.42, maxZ = 46, robbed = false, cracked = false, opened = false, camId = 9},
+    -- 米羅公園
+    [5] = {coords = vector3(1159.0, -314.15, 69.21), heading = 10, length = 0.7, width = 0.5, minZ = 68.21, maxZ = 69.21, robbed = false, cracked = false, opened = false, camId = 10},
+    -- 克林頓大街
+    [6] = {coords = vector3(381.52, 332.43, 103.57), heading = 345, length = 0.7, width = 0.5, minZ = 103.47, maxZ = 104.47, robbed = false, cracked = false, opened = false, camId = 11},
+    -- 18號加油站
+    [7] = {coords = vector3(-1829.59, 798.38, 138.19), heading = 43, length = 0.7, width = 0.5, minZ = 137.24, maxZ = 138.14, robbed = false, cracked = false, opened = false, camId = 12},
+    -- 班漢峽谷
+    [8] = {coords = vector3(-3048.79, 588.88, 7.91), heading = 288, length = 0.7, width = 0.2, minZ = 7.91, maxZ = 8.71, robbed = false, cracked = false, opened = false, camId = 14},
+    -- 丘瑪墟
+    [9] = {coords = vector3(-3249.63, 1007.81, 12.83), heading = 264, length = 0.7, width = 0.2, minZ = 12.83, maxZ = 13.63, robbed = false, cracked = false, opened = false, camId = 15},
+    -- 和美尼
+    [10] = {coords = vector3(543.02, 2662.44, 42.16), heading = 189, length = 0.7, width = 0.2, minZ = 42.16, maxZ = 42.96, robbed = false, cracked = false, opened = false, camId = 16},
+    -- 塞諾拉
+    [11] = {coords = vector3(2674.5, 3289.57, 55.24), heading = 242, length = 0.7, width = 0.2, minZ = 55.24, maxZ = 56.04, robbed = false, cracked = false, opened = false, camId = 18},
+    -- 沙灘海岸
+    [12] = {coords = vector3(1962.28, 3750.54, 32.34), heading = 211, length = 0.7, width = 0.2, minZ = 32.34, maxZ = 33.14, robbed = false, cracked = false, opened = false, camId = 19},
+    -- 佩利托灣
+    [13] = {coords = vector3(1737.82, 6419.24, 35.04), heading = 154, length = 0.7, width = 0.2, minZ = 35.04, maxZ = 35.84, robbed = false, cracked = false, opened = false, camId = 20},
+    -- 佩利托灣
+    [14] = {coords = vector3(171.26, 6642.23, 31.7), heading = 136, length = 0.7, width = 0.2, minZ = 31.7, maxZ = 32.5, robbed = false, cracked = false, opened = false, camId = 30},
+    -- 巴諾米諾
+    [15] = {coords = vector3(2549.47, 388.28, 108.62), heading = 87, length = 0.7, width = 0.2, minZ = 108.62, maxZ = 109.42, robbed = false, cracked = false, opened = false, camId = 30},
 }
 
 Config.MaleNoHandshoes = {
