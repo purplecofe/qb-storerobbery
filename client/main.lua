@@ -82,7 +82,7 @@ local function crackSafe(safe)
                 TriggerServerEvent("QBCore:Server:RemoveItem", "lockpick", 1)
                 TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items["lockpick"], "remove")
                 local cameraId = Config.Safes[safe].camId
-                exports['qb-dispatch']:StoreRobbery(cameraId)
+                exports['ps-dispatch']:StoreRobbery(cameraId)
                 exports['thermite']:OpenHackingGame(5, 6, function(success)
                     if success then
                         TriggerServerEvent("qb-storerobbery:server:setSafeStatus", safe)

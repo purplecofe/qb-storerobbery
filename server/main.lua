@@ -1,6 +1,4 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-local cashA = 250 				--<<how much minimum you can get from a robbery
-local cashB = 450				--<< how much maximum you can get from a robbery
 
 RegisterNetEvent('qb-storerobbery:server:setSafeStatus', function(safe)
     local src = source
@@ -30,13 +28,12 @@ end)
 RegisterNetEvent('qb-storerobbery:server:SafeReward', function(safe)
     local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
-	local rollcash = math.random(40,100)
-	local info = {
-		worth = math.random(cashA, cashB)
-	}
-	Player.Functions.AddItem('cash_roll', rollcash, false, info)
-	TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['cash_roll'], "add", rollcash)
-    TriggerEvent("qb-log:server:CreateLog", "storerobbery", "Store Rewards", "default", "**".. GetPlayerName(src) .. "** (citizenid: *"..Player.PlayerData.citizenid.."* | id: *"..src.."*)"..' Received the following from the store robbery. **Loot**: cash_roll ' .. rollcash.. 'x')
+	local amount = math.random(60,100)
+    local info = {worth = 50}
+
+	Player.Functions.AddItem('cash_roll', amount, false, info)
+	TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['cash_roll'], "add", amount)
+    TriggerEvent("qb-log:server:CreateLog", "storerobbery", "Store Rewards", "default", "**".. GetPlayerName(src) .. "** (citizenid: *"..Player.PlayerData.citizenid.."* | id: *"..src.."*)"..' Received the following from the store robbery. **Loot**: cash_roll ' .. amount.. 'x')
     -- local luck = math.random(1, 100)
     -- local odd = math.random(1, 100)
     -- if luck <= 10 then
