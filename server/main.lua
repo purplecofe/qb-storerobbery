@@ -47,6 +47,19 @@ RegisterNetEvent('qb-storerobbery:server:SafeReward', function(safe)
     -- end
 end)
 
+RegisterNetEvent('qb-storerobbery:server:toggleItem', function(give, item, amount)
+	local src = source
+	if give == 0 or give == false then
+		if QBCore.Functions.GetPlayer(src).Functions.RemoveItem(item, amount or 1) then
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], "remove", amount or 1)
+		end
+	else
+		if QBCore.Functions.GetPlayer(src).Functions.AddItem(item, amount or 1) then
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], "add", amount or 1)
+		end
+	end
+end)
+
 QBCore.Functions.CreateCallback('qb-storerobbery:server:getSafeStatus', function(source, cb)
     cb(Config.Safes)
 end)

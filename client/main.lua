@@ -79,11 +79,11 @@ local function crackSafe(safe)
                 if math.random(100) <= 50 then
                     TriggerServerEvent('hud:server:GainStress', math.random(1, 3))
                 end
-                TriggerServerEvent("QBCore:Server:RemoveItem", "lockpick", 1)
+                toggleItem(false, 'lockpick', 1)
                 TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items["lockpick"], "remove")
                 local cameraId = Config.Safes[safe].camId
                 exports['ps-dispatch']:StoreRobbery(cameraId)
-                exports['thermite']:OpenHackingGame(5, 6, function(success)
+                exports['ps-ui']:Thermite(function(success)
                     if success then
                         TriggerServerEvent("qb-storerobbery:server:setSafeStatus", safe)
                         TriggerServerEvent('qb-phone:server:sendNewMail', {
@@ -99,7 +99,7 @@ local function crackSafe(safe)
                     else
                         QBCore.Functions.Notify('破解失敗', 'error', 3000)
                     end
-                end)
+                 end, 6, 5, 3) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks
             else
                 QBCore.Functions.Notify('你沒有需要的物品', 'error', 3000)
             end
