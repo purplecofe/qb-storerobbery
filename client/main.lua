@@ -44,20 +44,7 @@ RegisterNetEvent('police:SetCopCount', function(amount)
 end)
 
 function IsWearingHandshoes()
-    local armIndex = GetPedDrawableVariation(PlayerPedId(), 3)
-    local model = GetEntityModel(PlayerPedId())
-    local retval = true
-
-    if model == `mp_m_freemode_01` then
-        if Config.MaleNoHandshoes[armIndex] ~= nil and Config.MaleNoHandshoes[armIndex] then
-            retval = false
-        end
-    else
-        if Config.FemaleNoHandshoes[armIndex] ~= nil and Config.FemaleNoHandshoes[armIndex] then
-            retval = false
-        end
-    end
-    return retval
+    return QBCore.Functions.IsWearingGloves()
 end
 
 function setupSafes()
